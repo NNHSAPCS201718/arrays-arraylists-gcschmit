@@ -1,3 +1,4 @@
+import java.util.GregorianCalendar;
 
 /**
  * Write a description of class Notes here.
@@ -75,7 +76,98 @@ public class Notes
             //System.out.println( i + ": " + odds[ i ] );
         }
         
+        /*
+         * Array References
+         *      variables of type array, contain a reference to the array
+         *      assigning one array variable to another, copies the reference,
+         *      not the array's elements
+         */
+        int[] moreOdds = odds;
         
+        /*
+         * This code changes the value of the element in the array, which
+         *      is referenced by both variables.
+         */
+        odds[ 2 ] = 6;
+        System.out.println( moreOdds[ 2 ] ); // prints 6
+        
+        
+        /*
+         * Enhanced For Loop
+         *      similiar to the "for ... in" structure in Python
+         *      iterates over the values in an array
+         */
+        for( int number : odds )
+        {
+            System.out.println( number );
+        }
+        
+        /*
+         * Limitations for Enhanced For Loops
+         *      the local variable (e.g., number) contains a copy of the
+         *          value of the element
+         *      cannot modify the values of the elements in the array
+         *      cannot easily determine the index of an element
+         */
+        for( int number : odds )
+        {
+            number += 1; // this doesn't change any element in the array
+        }
+        
+        for( int number : odds )
+        {
+            System.out.println( number );
+        }
+    }
+    
+    public static void createArrayOfCalendars()
+    {
+        /*
+         * Create an array of 12 calendars, each calendar initialized
+         *      for the start of a month.
+         *      
+         *  When we create an array of objects, each element is
+         *      initialized to null. We have to explicitly create new
+         *      objects and assign to each element.
+         */
+        GregorianCalendar[] calendars = new GregorianCalendar[ 12 ];
+        
+        /*
+         * At this point, every element in the array has a value of null
+         */
+        for( GregorianCalendar calendar : calendars )
+        {
+            System.out.println( calendar );
+        }
+        
+        /*
+         * create a calendar object and assign to each element in the array
+         */
+        for( int i = 0; i < calendars.length; i++ )
+        {
+            calendars[ i ] = new GregorianCalendar( 2017, i+1, 1 );
+        }
+        
+        for( GregorianCalendar calendar : calendars )
+        {
+            System.out.println( calendar );
+        }
+        
+        /*
+         * An enhanced for loop cannot modify the value of the element
+         *      in the array (e.g., reference to a calendar), but we
+         *      can call mutator methods which modify the properties of
+         *      the referenced object (e.g., day of the month).
+         */
+        for( GregorianCalendar calendar : calendars )
+        {
+            calendar.add( GregorianCalendar.DAY_OF_MONTH, 2 );
+        }
+        
+        for( GregorianCalendar calendar : calendars )
+        {
+            System.out.println( calendar );
+        }
     }
 }
 
