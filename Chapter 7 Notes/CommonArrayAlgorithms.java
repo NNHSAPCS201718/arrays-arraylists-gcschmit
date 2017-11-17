@@ -82,7 +82,7 @@ public class CommonArrayAlgorithms
      */
     public static void linearSearch( int valueToFind )
     {
-        int[] array = createRandomArray( 10, 50 );
+        int[] array = createRandomArray( 50, 10 );
         int count = -1;
         boolean mark = false;
         for(int num2:array)
@@ -93,6 +93,7 @@ public class CommonArrayAlgorithms
                 System.out.println(valueToFind + " Can be found at index: " + count);
                 printArray( array );
                 mark = true;
+                break;
             }
         }
 
@@ -122,10 +123,8 @@ public class CommonArrayAlgorithms
         System.out.println( "" );
 
         int switch1 = array[ index1 ];
-        int switch2 = array[ index2 ];
-
+        array[ index1 ] = array[ index2 ];
         array[ index2 ] = switch1;
-        array[ index1 ] = switch2;
 
         indice = 0;
         for ( int number : array )
@@ -191,6 +190,8 @@ public class CommonArrayAlgorithms
         {
             copyarray[i] = array[i];
         }
+        
+        printArray( array );
 
         for(int number: copyarray ){
             System.out.println( number );
