@@ -83,8 +83,10 @@ public class CommonArrayAlgorithms
      */
     public static void linearSearch( int valueToFind )
     {
-        int[] array = createRandomArray(10, 20);
+        int[] array = createRandomArray(30, 20);
         boolean matchfound=false;
+        
+        printArray( array );
 
         for ( int i=0; i<array.length; i++)
         {
@@ -114,8 +116,7 @@ public class CommonArrayAlgorithms
         int[] ourArray = createRandomArray(10,50);
         printArray(ourArray);
         int firstValue = ourArray[index1];
-        int secondValue = ourArray[index2];
-        ourArray[index1] = secondValue;
+        ourArray[index1] = ourArray[index2];
         ourArray[index2] = firstValue;
         printArray(ourArray); 
     }
@@ -166,6 +167,9 @@ public class CommonArrayAlgorithms
         for (int i = 0; i < JimmyBob.length; i ++){
             JimmyBob[i] = George[i];
         }
+        
+        printArray( George );
+        printArray( JimmyBob );
 
         return JimmyBob;
     }
