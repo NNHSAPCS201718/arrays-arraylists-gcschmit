@@ -13,10 +13,10 @@ public class CommonArrayAlgorithms
         {
             randomArray[ i ] = (int)( Math.random() * maxValue );
         }
-        
+
         return randomArray;
     }
-    
+
     /*
      * Prints the specified array to System.out
      */
@@ -24,7 +24,7 @@ public class CommonArrayAlgorithms
     {
         System.out.println( Arrays.toString( array ));
     }
-    
+
     /*
      * Array Algorithm #1: Sum and Average
      *  creates an array filled with random numbers
@@ -47,7 +47,7 @@ public class CommonArrayAlgorithms
         }
 
         average = sum / count;
-        
+
         printArray( array );
         System.out.println( "sum: " + sum + " average: " + average );
     }
@@ -60,6 +60,18 @@ public class CommonArrayAlgorithms
      */
     public static void printElementSeparators()
     {
+        int[] array = createRandomArray(5, 10);
+        int iterationCount = 0;
+
+        for(int i : array)
+        {
+            System.out.print(i);
+            iterationCount ++;
+            if(iterationCount < array.length)
+            {
+                System.out.print(" | ");
+            }
+        }
     }
 
     /*
@@ -70,6 +82,24 @@ public class CommonArrayAlgorithms
      */
     public static void linearSearch( int valueToFind )
     {
+        int[] array = createRandomArray( 10, 50 );
+        int count = -1;
+        boolean mark = false;
+        for(int num2:array)
+        {
+            count++;
+            if(valueToFind == num2)
+            {
+                System.out.println(valueToFind + " Can be found at index: " + count);
+                printArray( array );
+                mark = true;
+            }
+        }
+
+        if(mark == false)
+        {
+            System.out.println("Specified Value Not Found");
+        }
     }
 
     /*
@@ -81,6 +111,28 @@ public class CommonArrayAlgorithms
      */
     public static void swapElements( int index1, int index2 )
     {
+        int[] array = createRandomArray( 10, 50 );
+        int indice = 0;
+        for ( int number : array )
+        {
+            System.out.println( "number: " + number + ", " + "indice: " + indice );
+            indice++;
+        }
+
+        System.out.println( "" );
+
+        int switch1 = array[ index1 ];
+        int switch2 = array[ index2 ];
+
+        array[ index2 ] = switch1;
+        array[ index1 ] = switch2;
+
+        indice = 0;
+        for ( int number : array )
+        {
+            System.out.println( "number: " + number + ", " + "indice: " + indice );
+            indice++;
+        }
     }
 
     /*
@@ -90,6 +142,16 @@ public class CommonArrayAlgorithms
      */
     public static void findMax() 
     {
+        int[] array = createRandomArray( 10, 50 );
+        int max =0;
+        for( int num:array)
+        {
+            if( num > max){
+                max = num;
+            }
+        }
+        System.out.println(Arrays.toString(array));
+        System.out.println(max);
     }
 
     /*
@@ -99,6 +161,17 @@ public class CommonArrayAlgorithms
      */
     public static void findMin()
     {
+        int[] array = createRandomArray( 10, 50 );
+        int min = 50;
+        for( int i:array)
+        {
+            if(i<min)
+            {
+                min = i;
+            }
+        }
+        System.out.println(Arrays.toString(array));
+        System.out.println("The lowest value in the array is :\t"+min);
     }
 
     /*
@@ -111,7 +184,19 @@ public class CommonArrayAlgorithms
      */
     public static int[] copyArray()
     {
-        return null;
+        int[] array = createRandomArray( 10, 50 );
+        int [] copyarray = new int[ array.length ];
+
+        for( int i = 0; i < array.length; i++)
+        {
+            copyarray[i] = array[i];
+        }
+
+        for(int number: copyarray ){
+            System.out.println( number );
+        }
+
+        return copyarray;
     }
 
 }
