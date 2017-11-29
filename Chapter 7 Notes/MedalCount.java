@@ -42,9 +42,14 @@ public class MedalCount
      */
     public void printTable()
     {
-        for( int row = 0; row < COUNTRIES; row++ )
+        // good: for( int row = 0; row < COUNTRIES; row++ )
+        // better:
+        for( int row = 0; row < this.counts.length; row++ )
         {
-            for( int col = 0; col < MEDALS; col++ )
+            // good: for( int col = 0; col < MEDALS; col++ )
+            // better: for( int col = 0; col < this.counts[0].length; col++ )
+            // best:
+            for( int col = 0; col < this.counts[row].length; col++ )
             {
                 System.out.print( this.counts[row][col] + "\t" );
             }
@@ -52,6 +57,46 @@ public class MedalCount
             System.out.println();
         }
     }
+    
+    /**
+     * Sum the medals for the specified country index
+     *
+     * @param  countryIndex  the index of the country in the table whose
+     *                          medals to sum
+     * @return  the sum of the medals for the specified country index
+     */
+    public int sumMedalsForCountry(int countryIndex)
+    {
+        int sum = 0;
+        
+        for( int col = 0; col < this.counts[countryIndex].length; col++ )
+        {
+            sum += this.counts[countryIndex][col];
+        }
+        
+        return sum;
+    }
+    
+    /**
+     * Sum the medals of a given type specified by the medal index
+     *
+     * @param  medalIndex  the index of a given type of medal to sum
+     * @return  the sum of the medals of a given type specified by the
+     *              medal index
+     */
+    public int sumMedalsForType(int medalIndex)
+    {
+        int sum = 0;
+        
+        for( int row = 0; row < this.counts.length; row++ )
+        {
+            sum += this.counts[row][medalIndex];
+        }
+        
+        return sum;
+    }
+
+
 }
 
 
