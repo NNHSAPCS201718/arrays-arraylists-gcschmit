@@ -76,6 +76,25 @@ public class ArrayListNotes
                  *      index from the list.
                  */
                 list.remove( i );
+                i--;
+            }
+        }
+        
+        System.out.println( list );
+    }
+    
+    /**
+     * Removes even numbers from the specified list.
+     * 
+     * @param list the list of number to potentially remove
+     */
+    public static void removeEvens2( ArrayList<Integer> list )
+    {
+        for( int i = list.size() - 1; i >= 0; i-- )
+        {
+            if( list.get( i ) % 2 == 0 )
+            {
+                list.remove( i );
             }
         }
         
@@ -84,8 +103,8 @@ public class ArrayListNotes
     
     public static void main( String[] args )
     {
-        ArrayList<Integer> myList = createRandomIntegerList( 10, 20 );
-        removeEvens( myList );
+        ArrayList<Integer> myList = ArrayListNotes.createRandomIntegerList( 10, 20 );
+        ArrayListNotes.removeEvens( myList );
     }
 }
 
